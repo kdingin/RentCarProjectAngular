@@ -1,1 +1,29 @@
-<p>car works!</p>
+
+<br>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">Cars</li>
+</ul><br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Brand Name</th>
+            <th>Car Name</th>
+            <th>Color Name</th>
+            <th>Model Year</th>
+            <th>Daily Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <div *ngIf="dataLoaded==false" class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <tr *ngFor="let carDetail of carDetails">
+        <td>{{carDetail.brandName}}</td>
+        <td>{{carDetail.carName}}</td> 
+        <td>{{carDetail.colorName}}</td>
+        <td>{{carDetail.modelYear}}</td>
+        <td>{{carDetail.dailyPrice}}</td>
+        <td>{{carDetail.description}}</td>
+        
+    </tr>
+</table>

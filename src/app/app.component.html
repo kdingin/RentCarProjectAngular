@@ -2,18 +2,15 @@
   <app-navi></app-navi>
     <div class="row align-items-start">
       
-      <div class = "col-sm-3">
-        <br>
-        <app-brand></app-brand>
-        <app-color></app-color>
-      </div>
-      <br>
-      <div class="col-sm-9">
-        <router-outlet></router-outlet>
-      </div>
-      <br>
-      <div>
-        
-      </div>
-  
+        <div class = "col-md-3">
+          <app-brand></app-brand>
+          <app-color></app-color>
+          <app-customer></app-customer>
+        </div>
+       <div class="col-md-9">
+          <app-car></app-car> 
+          <app-rental></app-rental>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/models/car';
-import {HttpClient} from '@angular/common/http';
+import { CarDetail } from 'src/app/models/carDetail';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
+import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -9,20 +10,27 @@ import { CarService } from 'src/app/services/car.service';
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
-export class CarComponent implements OnInit{
-  cars:Car[]=[];
+export class CarComponent implements OnInit {
+  cars: Car[] = [];
+  carDetails:CarDetail[]=[];
   dataLoaded = false;
-  apiUrl = 'https://localhost:7216/api/cars/getall';
-  constructor(
-    private carService: CarService,
-  ) {}
+
+  constructor(private carService:CarService,private cardetailService:CarDetailService,) { }
   ngOnInit(): void {
-    console.log('ınit çalıştı');
+    this.getCars();
+    this.getCarDetail();
   }
   getCars() {
-    this.carService.getCars().subscribe((response) => {
-      this.cars = response.data;
-      this.dataLoaded = true;
-    });
+    this.carService.getCars().subscribe(response=>{
+      this.cars=response.data;
+      this.dataLoaded=true;
+    })
+  }
+  getCarDetail(){
+    this.cardetailService.getCarDetail().subscribe(response=>{
+      this.carDetails=response.data
+      console.log(this.carDetails);
+    })
+    
   }
 }
