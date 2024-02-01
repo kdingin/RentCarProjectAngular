@@ -10,6 +10,7 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class BrandComponent implements OnInit {
   brands:Brand[]=[];
+  currentBrand: Brand | null = null;
   constructor(private brandService:BrandService){}
   ngOnInit(): void {
     this.getBrands();
@@ -20,4 +21,24 @@ export class BrandComponent implements OnInit {
     })
   }
 
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+  }
+
+  getCurrentBrandClass(brand: Brand) {
+    return {
+      'list-group-item': true,
+      'active': brand === this.currentBrand
+    };
+  }
+  getAllBrandClass() {
+    return {
+      'list-group-item': true,
+      'active': !this.currentBrand
+    };
+  }
+  clearCurrentBrand() {
+    this.currentBrand = null; 
+  }
+  
 }

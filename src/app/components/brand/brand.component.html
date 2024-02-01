@@ -1,10 +1,11 @@
-<table class="table">
-  <br><ul class="list-group">
-      <li class="list-group-item active" aria-current="true">Brands</li>
-    </ul><br>
-   
-      <tr *ngFor="let brand of brands">
-        <td>{{brand.brandName}}</td>
-      </tr>
-   
-  </table>
+
+
+<ul class="list-group">
+  <li (click)="clearCurrentBrand()" 
+  [class]="getAllBrandClass()"
+   routerLink="/cars">Tüm Markalar</li>
+  <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">
+    {{ brand.brandName }}
+  </li>
+</ul>
+
