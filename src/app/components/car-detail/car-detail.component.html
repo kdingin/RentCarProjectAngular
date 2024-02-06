@@ -1,9 +1,64 @@
-<tr *ngFor="let carDetail of carDetails">
-    <td>{{carDetail.Id}}</td>
-    <td>{{carDetail.brandName}}</td>
-    <td>{{carDetail.carName}}</td>
-    <td>{{carDetail.colorName}}</td>
-    <td>{{carDetail.dailyPrice}}</td>
-    <td>{{carDetail.description}}</td>
-    <td>{{carDetail.modelYear}}</td>
-</tr>
+<div class="row">
+    <div class="col-md-10">
+      <div class="row mt-4" style="margin-left: 1%">
+        <div
+          *ngFor="let carDetail of carDetails"
+          class="card mt-2 mr-2"
+          style="width: 32rem; margin-right: 10px"
+        >
+          <img
+            *ngIf="carDetail.imagePath"
+            [src]="baseUrl + carDetail.imagePath"
+            class="card-img-top"
+            style="object-fit: cover"
+            width="70"
+            height="35%"
+          />
+
+          <img
+            *ngIf="!carDetail.imagePath"
+            src="/assets/defaultCar.jpg"
+            class="card-img-top"
+            style="object-fit: cover"
+            width="100"
+            height="50%"
+          />
+
+          <div class="card-body">
+            <h4 class="cart-title">
+              {{""}}
+            </h4>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i><b>Renk - </b></i>{{ carDetail.colorName }}
+            </li>
+            <li class="list-group-item">
+              <i><b>Marka - </b></i>{{ carDetail.brandName }}
+            </li>
+            <li class="list-group-item">
+              <i><b>Model - </b></i>{{ carDetail.carName }}
+            </li>
+            <li class="list-group-item">
+              <i><b>Model Yılı - </b></i>{{ carDetail.modelYear }}
+            </li>
+            <li class="list-group-item">
+              <i><b>Detay - </b></i>{{ carDetail.description }}
+            </li>
+            <li class="list-group-item">
+              <i><b>Günlük ücreti - </b></i
+              >{{ carDetail.dailyPrice | currency : "TRY" : "₺" : "4.2-2" }}
+            </li>
+            <li class="list-group-item">
+              >{{
+                carDetail.dailyPrice
+                  | currency : "TRY" : "₺" : "4.2-2"
+              }}
+            </li>
+          </ul>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>

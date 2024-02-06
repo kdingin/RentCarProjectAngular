@@ -1,0 +1,78 @@
+button#rentalButton {
+    margin-top: -64px;
+    margin-left: 122px;
+    width: 80px;
+  }
+  
+  button#filter {
+    margin-left: 10px;
+    width: 230px;
+    background-color: #198754;
+    color: white;
+  }
+  
+  h4 {
+    margin-left: 37%;
+    margin-top: 10px;
+    margin-bottom: -10px;
+  
+  }
+  
+  .card {
+    /* Diğer stiller */
+    width: 19rem;
+    height: auto;
+    /* Kartın yüksekliğini otomatik ayarla */
+  
+    /* Eğer resimlerin sığmama sorunu devam ederse, aşağıdaki iki satırı kullanabilirsiniz */
+    overflow: hidden;
+    border-radius: 30px;
+    /* İstediğiniz bir değeri kullanabilirsiniz */
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 20px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+  
+  :host {
+    margin: 10px;
+    align-self: auto;
+    flex: 0 1 auto;
+  }
+  
+  .card {
+    width: 420px; /* İstediğiniz genişliği kullanabilirsiniz */
+    height: 520px; /* İstediğiniz yüksekliği kullanabilirsiniz */
+    overflow: hidden;
+    border-radius: 30px;
+  }
+  
+  .card-image>img {
+    width: 100%;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .car-model {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 0;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    /* İstediğiniz bir yüksekliği kullanabilirsiniz */
+    object-fit: cover;
+    /* Resmi sığdırmak için */
+  }

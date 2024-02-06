@@ -8,10 +8,11 @@ import { CarDetail } from '../models/carDetail';
   providedIn: 'root'
 })
 export class CarDetailService {
-  apiUrl="https://localhost:44358/api/cars/getcardetails";
+  apiUrl="https://localhost:44358/api/";
 
   constructor(private httpClient:HttpClient) { }
   getCarDetail():Observable<ListResponseModel<CarDetail>>{
-    return this.httpClient.get<ListResponseModel<CarDetail>>(this.apiUrl);
+    let newPath=this.apiUrl + "cars/getcardetails"
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
   }
 }

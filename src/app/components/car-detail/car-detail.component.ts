@@ -12,25 +12,26 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class CarDetailComponent implements OnInit {
   carDetails:CarDetail[]=[];
+  baseUrl="https://localhost:44358/uploads/images/";
   
   constructor(
     private carDetailService:CarDetailService,
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private rentalSerivce:RentalService
+    private rentalService:RentalService
   ){
     
   }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      
-        this.getCarDetail()
-      
+      if(params["carId"]){
+        this.getCarDetailsId(params["carId"])
+      }
     })
   }
-  getCarDetail(){
-    this.carDetailService.getCarDetail().subscribe(response=>{
-      this.carDetails=response.data
+  getCarDetailsId(carId:number){
+    this.carService.getCarDetailsId(carId).subscribe(response=>{
+      this.carDetails = response.data
     })
   }
 
